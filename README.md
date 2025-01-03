@@ -58,7 +58,7 @@ local function createButton()
 
     local button = Instance.new("TextButton")
     button.Size = UDim2.new(0, 200, 0, 50)
-    button.Position = UDim2.new(0.5, -100, 0.9, -25)
+    button.Position = UDim2.new(0.5, -100, 0.5, -25)
     button.Text = "Toggle Hitbox"
     button.Parent = screenGui
 
@@ -70,15 +70,4 @@ local function createButton()
     end)
 end
 
-Players.PlayerAdded:Connect(function(player)
-    player.CharacterAdded:Connect(function(character)
-        local teamColor = player.TeamColor
-        if teamColor ~= friendTeamColor then
-            local hitbox = createHitbox(character, teamColor)
-            hitbox.Name = "Hitbox"
-        end
-    end)
-end)
-
-boostFPS()
 createButton()
